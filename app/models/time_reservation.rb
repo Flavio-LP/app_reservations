@@ -1,0 +1,2 @@
+class TimeReservation < ApplicationRecord
+end
