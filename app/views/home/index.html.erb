@@ -1,18 +1,6 @@
 <h1>Bem-vindo ao Sistema de Reservas</h1>
 
-<% if user_signed_in? %>
-  <p>Olá, <%= current_user.email %>!</p>
 
-  <% if current_user.admin? %>
-    <p>Você é um administrador.</p>
-    <%= link_to 'Ir para o painel admin', admin_dashboard_path %>
-  <% else %>
-    <p>Você é um usuário normal.</p>
-    <%= link_to 'Ir para o painel do usuário', user_dashboard_path %>
-  <% end %>
-
-  <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-<% else %>
   <%= link_to 'Entrar', new_user_session_path %> |
-  <%= link_to 'Cadastrar', new_user_registration_path %>
-<% end %>
+  <%= link_to 'Cadastrar', new_user_registration_path %>|
+  <%= link_to 'Admin', admin_session_path %>
