@@ -4,9 +4,13 @@ class HomeController < ApplicationController
    def index
       if current_user.admin?
 
+         @users = User.all
+
          render "adm"
       else
          render "index"
       end
    end
+
+
 end
