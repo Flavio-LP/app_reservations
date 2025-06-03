@@ -1,0 +1,107 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Fundo gradiente quente, lembrando pizza assando */
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adiciona uma "marca d'água" de pizza no fundo */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: url('https://cdn-icons-png.flaticon.com/512/3132/3132693.png') no-repeat center center;
+  background-size: 300px 300px;
+  opacity: 0.08;
+  transform: translateX(-50%) rotate(-15deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-box {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 350px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2d3a4a;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #d1d9e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  background: #f9fafc;
+}
+
+.login-input:focus {
+  border-color: #4f8cff;
+  outline: none;
+  background: #fff;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.actions {
+  text-align: center;
+}
+
+.login-btn {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background: #2563eb;
+}
+
+.login-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-links a {
+  color: #4f8cff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
