@@ -1,5 +1,17 @@
 <h1> Admin tela </h1>
 
+  <h2>Users list </h2>
+
+  <div id="Users">
+    <% @users.each do |user| %>
+      <p>
+        <%=  user.id %>
+      </p>
+    <% end %>
+  </div>
+
+
+
 <form action="<%= destroy_user_session_path %>" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="hidden" name="_method" value="delete">
