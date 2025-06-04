@@ -20,6 +20,8 @@ gem "jbuilder"
 gem "devise"
 gem "dotenv-rails"
 
+gem "pry"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -63,4 +65,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
