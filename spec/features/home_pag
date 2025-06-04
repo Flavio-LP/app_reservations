@@ -1,0 +1,15 @@
+require 'rails_helper'
+
+RSpec.feature "HomePage", type: :feature do
+  let!(:user) { User.create(email: "flavio@teste.com", password: "123456", admin: false) }
+
+  scenario "usuário comum faz login e vê a tela padrão" do
+    visit new_user_session_path
+    fill_in "Email", with: "flavio@teste.com"
+    fill_in "current-password", with: "123456"
+    click_button "Entrar"
+
+    expect(page).to have_content("Welcome to the Home Page") # ajuste conforme o texto da sua view index.html.erb
+    expect(page).not_to have_content("Admin tela") # ajuste conforme o texto da sua view adm.html.erb
+  end
+end

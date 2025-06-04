@@ -18,6 +18,14 @@ O sistema diferencia usuários comuns de administradores através de uma flag pe
 - Para tornar um usuário administrador, altere o valor do campo `admin` para `true` diretamente no banco de dados.
 - Usuários com `admin: true` visualizam uma tela exclusiva de administração ao acessar a home.
 
+## Esqueci minha senha?
+
+- Se você esqueceu sua senha, há uma funcionalidade customizada para alterar a senha padrão para:
+   ```
+      abc123654
+   ```
+- Essa customização foi realizada para substituir o envio de e-mail pelo rails   
+
 ## Instalação
 
 1. **Clone o repositório:**
