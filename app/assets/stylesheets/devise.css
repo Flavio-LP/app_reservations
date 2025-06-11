@@ -1,3 +1,6 @@
+
+
+
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -104,4 +107,44 @@
 
 .login-links a:hover {
   text-decoration: underline;
+}
+
+/* container da mensagem de erro (centralizada) */
+.error-container {
+  text-align: center;
+  margin-bottom: 1rem;
+  z-index: 10;
+}
+
+/* estilo da mensagem em si */
+.error-message {
+  display: inline-block;
+  color: #e3342f;
+  background: #ffecec;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e3342f;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* inputs com erro ficam vermelhos e recebem pulso */
+.login-input.error {
+  border: 2px solid #e3342f;
+  box-shadow: 0 0 0 3px rgba(227,52,47,0.3);
+  animation: pulse-red 0.8s ease-in-out;
+}
+
+/* foco no input de erro */
+.login-input.error:focus {
+  outline: none;
+  border-color: #e3342f;
+  box-shadow: 0 0 5px rgba(227,52,47,0.5);
+}
+
+/* animação de pulso */
+@keyframes pulse-red {
+  0%   { box-shadow: 0 0 0 0 rgba(227,52,47,0.3); }
+  50%  { box-shadow: 0 0 8px 4px rgba(227,52,47,0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(227,52,47,0.3); }
 }
