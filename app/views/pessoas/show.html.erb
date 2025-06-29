@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Meus Dados Pessoais</h2>
+  
+  <div class="card">
+    <div class="card-body">
+      <p><strong>Nome:</strong> <%= @pessoa.nome %></p>
+      <p><strong>Sobrenome:</strong> <%= @pessoa.sobrenome %></p>
+      <p><strong>Telefone:</strong> <%= @pessoa.telefone %></p>
+      <p><strong>CPF:</strong> <%= @pessoa.cpf %></p>
+      <p><strong>Data de Nascimento:</strong> <%= @pessoa.data_nascimento %></p>
+      <p><strong>Endereço:</strong> <%= @pessoa.endereco %></p>
+      
+      <div class="mt-3">
+        <%= link_to 'Editar Dados', edit_pessoa_path, class: 'btn btn-primary' %>
+        <%= link_to 'Voltar', root_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>
