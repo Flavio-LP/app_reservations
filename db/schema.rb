@@ -10,16 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_135542) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_02_162009) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
-
-  create_table "hours", force: :cascade do |t|
-    t.time "hour"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_hours_on_id", unique: true
-  end
 
   create_table "pessoas", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -34,6 +27,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_135542) do
     t.datetime "updated_at", null: false
     t.index ["cpf"], name: "index_pessoas_on_cpf", unique: true, where: "(cpf IS NOT NULL)"
     t.index ["user_id"], name: "index_pessoas_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "table_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "pessoa_id", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.index ["pessoa_id"], name: "index_reservations_on_pessoa_id"
+    t.index ["table_id"], name: "index_reservations_on_table_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -70,4 +76,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_135542) do
   end
 
   add_foreign_key "pessoas", "users"
+  add_foreign_key "reservations", "pessoas"
+  add_foreign_key "reservations", "tables"
+  add_foreign_key "reservations", "users"
 end
