@@ -16,14 +16,28 @@
 # )
 
 # Garante que sempre crie (ou encontre) as mesas abaixo
-tables_data = [
-  { number_table: 1, occupants: 5 },
-  { number_table: 2, occupants: 7 },
-  { number_table: 3, occupants: 4 },
-  { number_table: 4, occupants: 6 },
-  { number_table: 5, occupants: 3 }
+#tables_data = [
+#  { number_table: 1, occupants: 5 },
+#  { number_table: 2, occupants: 7 },
+#  { number_table: 3, occupants: 4 },
+#  { number_table: 4, occupants: 6 },
+#  { number_table: 5, occupants: 3 }
+#]
+#
+#tables_data.each do |attrs|
+#  Table.find_or_create_by!(attrs)
+#end
+
+hours_data = [
+  { hour: "18:00" },
+  { hour: "19:00" },
+  { hour: "20:00" },
+  { hour: "21:00" },
+  { hour: "22:00" },
+  { hour: "23:00" }
 ]
 
-tables_data.each do |attrs|
-  Table.find_or_create_by!(attrs)
+hours_data.each do |attrs|
+  Hour.find_or_create_by!(attrs)
 end
+
