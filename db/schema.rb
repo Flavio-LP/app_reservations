@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_29_203654) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_02_135542) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "hours", force: :cascade do |t|
+    t.time "hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_hours_on_id", unique: true
+  end
 
   create_table "pessoas", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -27,6 +34,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_29_203654) do
     t.datetime "updated_at", null: false
     t.index ["cpf"], name: "index_pessoas_on_cpf", unique: true, where: "(cpf IS NOT NULL)"
     t.index ["user_id"], name: "index_pessoas_on_user_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.integer "number_table"
+    t.integer "occupants"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_tables_on_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
