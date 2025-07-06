@@ -1,0 +1,59 @@
+<h1>Nova Reserva</h1>
+
+<%= form_with(model: @reservation, local: true) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "erro") %> impediram a criação da reserva:</h2>
+      <ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date, "Data" %><br>
+    <%= f.date_field :date, min: Date.today %>
+  </div>
+
+  <div class="field">
+    <%= f.label :table_id, "Mesa" %><br>
+    <%= f.collection_select :table_id,
+                            @tables,
+                            :id,
+                            :number_table,
+                            { prompt: "Selecione a mesa" } %>
+  </div>
+
+    <div class="field">
+      <%= f.label :hour_id, "Horário" %><br>
+      <%= f.collection_select :hour_id,
+                              @hours,
+                              :id,
+                              :hour,
+                              { prompt: "Selecione o horário" } %>
+    </div>
+
+
+    
+    <div class="field">
+      <%= f.label :start_time, "Início" %><br>
+      <%= f.time_select :start_time,
+                        minute_step: 30,
+                        default: Time.current.change(min: 0) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_time, "Fim" %><br>
+      <%= f.time_select :end_time,
+                        minute_step: 30,
+                        default: (Time.current + 1.hour).change(min: 0) %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit "Reservar", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", reservations_path, class: "btn btn-secondary mt-2" %>

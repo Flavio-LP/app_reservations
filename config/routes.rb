@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resource :pessoa, only: [ :show, :edit, :create, :update ]
 
+  resources :reservations
+
   devise_scope :user do
     post "custom_password_reset", to: "users/passwords#custom_reset", as: :custom_password_reset
   end
