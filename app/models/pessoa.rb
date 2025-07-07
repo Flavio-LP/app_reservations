@@ -9,6 +9,8 @@ class Pessoa < ApplicationRecord
   validates :data_nascimento, presence: true
   validates :endereco, presence: true, length: { minimum: 10 }
 
+  has_many :reservations, dependent: :destroy
+
   # Callback para marcar dados como completos quando todos os campos obrigatórios estão preenchidos
   before_save :check_dados_completos
 

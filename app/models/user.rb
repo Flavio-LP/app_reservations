@@ -2,7 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :pessoa, dependent: :destroy
+  has_many :pessoas, dependent: :destroy
+  has_many :reservations, through: :pessoas
 
   # Método para verificar se precisa completar dados pessoais
   def needs_to_complete_profile?

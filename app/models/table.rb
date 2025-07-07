@@ -1,4 +1,3 @@
 class Table < ApplicationRecord
-  # aqui você pode adicionar validações ou associações, ex:
-  # validates :number_table, presence: true, numericality: { only_integer: true }
+  has_many :reservations, dependent: :destroy
 end

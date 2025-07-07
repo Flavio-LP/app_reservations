@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_162009) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_06_113612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "hours", force: :cascade do |t|
+    t.time "hour", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pessoas", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -37,7 +43,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_162009) do
     t.bigint "pessoa_id", null: false
     t.time "start_time"
     t.time "end_time"
+    t.date "date", default: "2025-07-06", null: false
+    t.bigint "hour_id"
+    t.index ["hour_id"], name: "index_reservations_on_hour_id"
     t.index ["pessoa_id"], name: "index_reservations_on_pessoa_id"
+    t.index ["table_id", "date"], name: "index_reservations_on_table_id_and_date"
     t.index ["table_id"], name: "index_reservations_on_table_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -76,6 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_162009) do
   end
 
   add_foreign_key "pessoas", "users"
+  add_foreign_key "reservations", "hours"
   add_foreign_key "reservations", "pessoas"
   add_foreign_key "reservations", "tables"
   add_foreign_key "reservations", "users"
